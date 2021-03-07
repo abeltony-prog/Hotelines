@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\welcomeController;
 use App\Http\Controllers\RestaurantController;
@@ -21,6 +22,8 @@ Route::get('/', [WelcomeController::class , 'welcome']);
 Route::get('/more/{id}', [WelcomeController::class , 'hotelmore']);
 Route::get('/moretables/{id}', [WelcomeController::class , 'moretables']);
 Route::get('/home', [HomeController::class , 'index']);
+Route::get('/bookNow/{id}', [WelcomeController::class , 'booking']);
+Route::post('/book', [BookingController::class , 'book']);
 Route::post('/addHotel', [HotelController::class , 'addHotel']);
 Auth::routes();
 Route::get('/dashboard', [HotelController::class , 'dashboard']);
