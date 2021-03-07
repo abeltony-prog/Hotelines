@@ -33,4 +33,9 @@ class welcomeController extends Controller
         );
         return view('hotelmore')->with($data);
     }
+
+    public function booking($id){
+        $room = Rooms::find($id);
+        return view('booking')->with('room', $room);
+    }
 }
