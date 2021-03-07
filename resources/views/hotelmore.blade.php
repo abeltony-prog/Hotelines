@@ -29,7 +29,7 @@
                           <div class="dst-btm">
                             <h6 class="">{{$room->type}}</h6>
                             <p>{{$room->description}}</p>
-                            <span><a href="" class="btn btn-success">Book Now</a></span>
+                            <a href="/bookNow/{{$room->id}}" class="btn btn-success">Book Now</a>
                           </div>
                       </div>
                   </div>
