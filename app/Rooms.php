@@ -20,4 +20,8 @@ class Rooms extends Model
     public function gethotel(){
         return $this->belongsTo('App\Hotels');
     }
+
+    public function getbook(){
+        return $this->hasMany('App\booking');
+    }
 }
