@@ -45,7 +45,7 @@ Author URL: http://w3layouts.com
           </ul>
         </div>
         <div class="d-lg-block d-none">
-          <a href="/login" class="btn btn-style btn-primary">Sign in</a>
+          <a href="/login" class="btn btn-style btn-success">Sign in</a>
         </div>
         <!-- toggle switch for light and dark theme -->
         <div class="mobile-position">

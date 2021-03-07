@@ -18,7 +18,7 @@
                       <input type="text" name="" placeholder="Province you are Located in" required="">
                     </div>
                     <div class="bottom-btn col-md-4 mt-md-0 mt-3">
-                      <button class="btn btn-style btn-success"><span class="fa fa-search mr-3"
+                      <button class="btn btn-style btn-secondary"><span class="fa fa-search mr-3"
                           aria-hidden="true"></span> Search</button>
                     </div>
                   </div>
