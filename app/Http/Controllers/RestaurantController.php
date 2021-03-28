@@ -8,14 +8,9 @@ use App\Tables;
 
 class RestaurantController extends Controller
 {
-    //
-    public function restaurant(){
-        $alltables =  DB::table('tables')->where('users_id', auth()->user()->id)->get();
-        return view('restaurant')->with('alltables', $alltables);
-    }
 
-    public function addTables(){
-        $tables =  DB::table('hotels')->where('users_id', auth()->user()->id)->get();
+    public function addTables($id){
+        $tables =  DB::table('hotels')->where('id', $id)->get();
         return view('addTables')->with('tables' , $tables);
     }
 
@@ -30,7 +25,6 @@ class RestaurantController extends Controller
             $file=$request->file('file')->getClientOriginalName();
             $request->file->storeAs('Tables', $file, 'public');
             $tables= new Tables();
-            $tables->users_id = $request->users_id;
             $tables->hotels_id = $request->hotels_id;
             $tables->name=$request->name;
             $tables->file=$file;

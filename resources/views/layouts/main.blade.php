@@ -45,7 +45,11 @@ Author URL: http://w3layouts.com
           </ul>
         </div>
         <div class="d-lg-block d-none">
+        @guest
           <a href="/login" class="btn btn-style btn-success">Sign in</a>
+        @else
+        Your Account : <a href="/login" style="color:green">{{ Auth::user()->name }}</a>
+        @endguest
         </div>
         <!-- toggle switch for light and dark theme -->
         <div class="mobile-position">

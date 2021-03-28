@@ -13,9 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
- <form action="addh" method="post" enctype="multipart/form-data">
+ <form action="/addh" method="post" enctype="multipart/form-data">
     @csrf
-    <input type="hidden" name="users_id" value="{{ Auth::user()->id }}">
     @foreach($hotels as $h)
     <input type="hidden" name="hotels_id" value="{{ $h->id }}">
     @endforeach
@@ -40,6 +39,9 @@
     <input type="text" class="form-control" value="" name="price" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <button type="submit" class="btn btn-success">Add Room</button>
+  @foreach($hotels as $h)
+  <a href="/HotelRooms/{{$h->id}}" class="btn btn-warning">Back</a>
+  @endforeach
 </form>
                 </div>
             </div>

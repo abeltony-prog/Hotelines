@@ -3,11 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Rooms;
 use App\booking;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 class BookingController extends Controller
 {
     //
+    public function bookings($id){
+        $data = array(
+            'room'=>DB::table('rooms')->where('id', $id)->get(),
+            'allbookings' => DB::table('bookings')->where('hotels_id',$id)->get()
+        );
+        return view('bookingList')->with($data);
+    }
     public function book(Request $request){
         $request->validate([
             'nroom'=>"required",
@@ -28,6 +37,7 @@ class BookingController extends Controller
         $booking->card = $request->card;
         $booking->expdate = $request->expdate;
         $booking->phone = $request->phone;
-        return $request->input();
+        $booking->save();
+        return redirect('/')->with('success', 'Thank you for booking');
     }
 }

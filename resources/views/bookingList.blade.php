@@ -15,23 +15,23 @@
                     <table class="table">
   <thead>
     <tr>
-      <th scope="col">Hotel Name</th>
-      <th scope="col">email</th>
-      <th scope="col">
-        <a href="/dashboard" class="btn btn-success">Add Hotels</a>
-      </th>
+      <th scope="col">Room Name</th>
+      <th scope="col">Number of rooms</th>
+      <th scope="col">Arrival Date</th>
+      <th scope="col">Leaving Date</th>
+      <th scope="col">Phone Number</th>
     </tr>
   </thead>
   <tbody>
-  @foreach($allhotels as $hotel)
+  @foreach($allbookings as $booking)
     <tr>
-      <th>{{$hotel ->name}}</th>
-      <td>{{$hotel ->email}}</td>
-      <td>
-      <a href="/HotelRooms/{{$hotel->id}}" class="btn btn-primary">Open</a>
-      <a href="/bookingList/{{$hotel->id}}" class="btn btn-success">Bookings</a>
-      <button class="btn btn-danger">Delete</button>
-      </td>
+      @foreach($room as $r)
+      <th>{{$r ->type}}</th>
+      @endforeach
+      <td>{{$booking ->nroom}}</td>
+      <td>{{$booking ->adate}}</td>
+      <td>{{$booking ->ldate}}</td>
+      <td>{{$booking ->phone}}</td>
     </tr>
     @endforeach
   </tbody>

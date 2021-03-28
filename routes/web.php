@@ -24,15 +24,16 @@ Route::get('/moretables/{id}', [WelcomeController::class , 'moretables']);
 Route::get('/home', [HomeController::class , 'index']);
 Route::get('/bookNow/{id}', [WelcomeController::class , 'booking']);
 Route::post('/book', [BookingController::class , 'book']);
-Route::post('/addHotel', [HotelController::class , 'addHotel']);
+Route::post('/addHotel', [HomeController::class , 'addHotel']);
 Auth::routes();
 Route::get('/dashboard', [HotelController::class , 'dashboard']);
-Route::get('/HotelRooms', [HotelController::class , 'rooms']);
-Route::get('/addRoom', [RoomsController::class , 'addRooms']);
+Route::get('/HotelRooms/{id}', [HotelController::class , 'rooms']);
+Route::get('/addRoom/{id}', [RoomsController::class , 'addRooms']);
 Route::get('/Restaurant', [RestaurantController::class , 'restaurant']);
 Route::post('/addh', [RoomsController::class , 'addh']);
-Route::get('/addTables', [RestaurantController::class , 'addTables']);
+Route::get('/addTables/{id}', [RestaurantController::class , 'addTables']);
 Route::post('/add', [RestaurantController::class , 'add']);
+Route::get('/bookingList/{id}', [BookingController::class , 'bookings']);
 
 
 //Route::post('addHotel', 'HomeController@addHotel')->name('addHotel');

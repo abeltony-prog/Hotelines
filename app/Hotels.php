@@ -18,6 +18,9 @@ class Hotels extends Model
         function gettable(){
             return $this->hasMany('App\Tables');
         }
+        function getbooking(){
+            return $this->hasMany('App\booking');
+        }
     }
 
 }

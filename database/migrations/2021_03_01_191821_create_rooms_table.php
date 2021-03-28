@@ -15,7 +15,6 @@ class CreateRoomsTable extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id');
             $table->unsignedBigInteger('hotels_id');
             $table->string('type');
             $table->string('description');
@@ -23,7 +22,6 @@ class CreateRoomsTable extends Migration
             $table->string('price');
             $table->timestamps();
             $table->foreign('hotels_id')->references('id')->on('hotels'); 
-            $table->foreign('users_id')->references('id')->on('users'); 
 
         });
     }

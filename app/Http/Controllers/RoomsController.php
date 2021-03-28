@@ -9,8 +9,8 @@ use App\Rooms;
 class RoomsController extends Controller
 {
     //
-    public function addRooms(){
-        $hotels = DB::table('hotels')->where('users_id', auth()->user()->id)->get();
+    public function addRooms($id){
+        $hotels = DB::table('hotels')->where('id', $id)->get();
         return view('addRooms')->with('hotels',$hotels);
     }
     public function addh(Request $request){
@@ -25,7 +25,6 @@ class RoomsController extends Controller
             $request->file->storeAs('rooms', $file, 'public');
 
             $rooms = new Rooms();
-            $rooms->users_id = $request->users_id;
             $rooms->hotels_id = $request->hotels_id;
             $rooms->type=$request->type;
             $rooms->description=$request->description;

@@ -15,7 +15,6 @@
                     @endif
  <form action="/add" method="post" enctype="multipart/form-data">
     @csrf
-    <input type="hidden" name="users_id" value="{{ Auth::user()->id }}">
     @foreach($tables as $t)
     <input type="hidden" name="hotels_id" value="{{ $t->id }}">
     @endforeach
@@ -35,6 +34,10 @@
     <input type="text" class="form-control" value="" name="price" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <button type="submit" class="btn btn-success">Add Table</button>
+  @foreach($tables as $t)
+  <a href="/HotelRooms/{{$t->id}}" class="btn btn-warning">Go Back</a>
+  @endforeach
+
 </form>
                 </div>
             </div>
